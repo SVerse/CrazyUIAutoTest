@@ -10,11 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-/** 
 
-* @version 创建时间：2020年2月15日 下午4:26:46 
-
-*/
 public class CrazyWebDriver extends DriverBase {
 	private static Logger log = Logger.getLogger(CrazyWebDriver.class);
 

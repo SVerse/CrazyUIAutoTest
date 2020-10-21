@@ -32,10 +32,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @version 创建时间：2020年2月15日 下午7:01:32
- *
- */
+
 public class ElementOperate {
 	private static Logger log = Logger.getLogger(ElementOperate.class);
 	DriverBase driver;

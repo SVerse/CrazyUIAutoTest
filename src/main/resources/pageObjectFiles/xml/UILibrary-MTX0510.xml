@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--整个对象库文件的根目录，管理整个项目的对象-->
+<map>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxHomePage" value="" desc="mtx首页">
+		<locator type="linkText" timeout="3" value="登录 "  desc="登录链接">loginlink</locator>
+		<locator type="cssSelector" timeout="3" value=".goods-items"  desc="商品">firstgoods</locator>
+		<locator type="cssSelector" timeout="3" value=".am-icon-fw.am-icon-user"  desc="个人中心">personcenter</locator>
+		<locator type="cssSelector" timeout="10" value=".mod-vip"  desc="登录以后的元素">modvip</locator>
+		
+		
+	</page>
+	
+	<page pagename="com.mtx.ui.auto.pageObject.MtxLoginPage" value="" desc="登录页面">
+		<locator type="xpath" timeout="20" value="//*[@name='accounts']"  desc="用户名">username</locator>
+		<locator type="name" timeout="3" value="pwd"  desc="密码">password</locator>
+		<locator type="className" timeout="3" value="btn-loading-example"  desc="登录按钮">loginBtn</locator>
+	</page>
+	
+	<page pagename="com.mtx.ui.auto.pageObject.GoodsDetailPage" value="" desc="商品详情页">
+		<locator type="xpath" timeout="20" value="//*[text()='立即购买']"  desc="立即购买">buy</locator>
+	</page>
+	
+	<page pagename="com.mtx.ui.auto.pageObject.GoodsOrderPage" value="" desc="商品下单页">
+		<locator type="xpath" timeout="20" value="//*[text()='货到付款']/.."  desc="货到付款">货到付款</locator>
+		<locator type="cssSelector" timeout="20" value="[title='点击此按钮，提交订单']"  desc="提交订单">提交订单</locator>
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxPersonCenterPage" value="" desc="个人中心页面">
+		<locator type="partialLinkText" timeout="20" value="个人资料"  desc="个人资料">personinfo</locator>
+		<locator type="partialLinkText" timeout="20" value="订单管理"  desc="个人资料">orderlink</locator>
+		<locator type="linkText" timeout="20" value="修改"  desc="修改">change</locator>
+		<locator type="xpath" timeout="20" value="//div[@class='submit-operation']/div"  desc="选择图片按钮">selectimage</locator>
+		<locator type="cssSelector" timeout="20" value=".head-submit"  desc="确认按钮">confirmimage</locator>
+		<locator type="cssSelector" timeout="20" value="dd>img"  desc="头像">headerimg</locator>	
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxOrderPage" value="" desc="前台订单管理页面">
+		<locator type="xpath" timeout="20" value="//button[contains(text(),'收货')]"  desc="收货">acceptgoods</locator>
+		<locator type="xpath" timeout="20" value="//*[text()='确定']"  desc="弹框确定">confirm</locator>
+		<locator type="partialLinkText" timeout="20" value="评论"  desc="评论">comment</locator>
+		<locator type="partialLinkText" timeout="20" value="申请售后"  desc="申请售后">申请售后</locator>
+		<locator type="xpath" timeout="20" value="//div[@class='submit-operation']/div"  desc="选择图片按钮">selectimage</locator>
+		<locator type="cssSelector" timeout="20" value=".head-submit"  desc="确认按钮">confirmimage</locator>
+		<locator type="cssSelector" timeout="20" value="dd>img"  desc="头像">headerimg</locator>	
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxCommentPage" value="" desc="订单评论页面">
+		<locator type="cssSelector" timeout="20" value=".rating.not-selected>li"  desc="评论星号">rating</locator>
+		<locator type="name" timeout="20" value="content[]"  desc="评论内容">content</locator>
+		<locator type="cssSelector" timeout="20" value=".am-switch-handle-off.am-switch-default"  desc="是否匿名">amswitch</locator>
+		<locator type="xpath" timeout="20" value="//*[text()='提交']"  desc="提交">submit</locator>
+	</page>
+	
+	<page pagename="com.mtx.ui.auto.pageObject.MtxAftersalesPage" value="" desc="申请售后页面">
+		<locator type="xpath" timeout="20" value="//*[text()='仅退款']"  desc="仅退款">onlyrefund</locator>
+		<locator type="name" timeout="20" value="reason"  desc="退款原因">reason</locator>
+		<locator type="name" timeout="20" value="msg"  desc="退款说明">msg</locator>
+		<locator type="xpath" timeout="20" value="//*[text()='提交']"  desc="提交">submit</locator>
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxHouLoginPage" value="" desc="后台登录页面">
+		<locator type="name" timeout="20" value="username"  desc="用户名">username</locator>
+		<locator type="name" timeout="3" value="login_pwd"  desc="密码">password</locator>
+		<locator type="className" timeout="3" value="btn-loading-example"  desc="登录按钮">loginBtn</locator>
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxHouHomePage" value="" desc="mtx后台首页">
+		<locator type="xpath" timeout="3" value="//*[text()='订单管理']"  desc="订单管理">orderlink</locator>
+		<locator type="cssSelector" timeout="3" value=".menu-items-178"  desc="订单管理菜单">ordermenu</locator>
+		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">personcenter</locator>	
+	</page>
+	<page pagename="com.mtx.ui.auto.pageObject.MtxHouOrderPage" value="" desc="mtx后台订单管理页面">
+		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']/button"  desc="发货">sendgoods</locator>	
+		<locator type="cssSelector" timeout="3" value=".express-items-1"  desc="第一个快递">express</locator>
+		<locator type="name" timeout="3" value="express_number"  desc="快递单号">express_number</locator>
+		<locator type="xpath" timeout="3" value="(//*[text()='确认'])[2]"  desc="发货确认">expressconfirm</locator>
+		<locator type="id" timeout="3" value="ifcontent"  desc="订单页面的iframe id">orderiframe</locator>
+<!-- 		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator>
+		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator>
+		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator> -->
+		//
+	</page>
+
+
+
+
+
+
+</map>

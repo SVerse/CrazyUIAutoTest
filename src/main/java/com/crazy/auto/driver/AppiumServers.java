@@ -8,11 +8,7 @@ import org.apache.log4j.Logger;
 
 import java.io.File;
 
-/** 
 
-* @version 创建时间：2020年4月18日 上午10:36:06 
-
-*/
 public class AppiumServers {
 	private static Logger log = Logger.getLogger(AppiumServers.class);
 	AppiumDriverLocalService service;

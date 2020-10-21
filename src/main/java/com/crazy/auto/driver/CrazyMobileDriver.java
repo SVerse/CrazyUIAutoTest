@@ -20,10 +20,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 
-/**
- * @author 沙陌 qq2879897713
- *
- */
+
 public class CrazyMobileDriver extends DriverBase {
 
 	private static Logger log = Logger.getLogger(CrazyMobileDriver.class);

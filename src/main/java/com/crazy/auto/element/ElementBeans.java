@@ -3,9 +3,7 @@ package com.crazy.auto.element;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 
-/** 
-* @version 创建时间：2020年2月15日 下午4:25:36
-*/
+
 public class ElementBeans {
 	private String value;
 	private int timout;

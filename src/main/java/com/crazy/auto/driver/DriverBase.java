@@ -21,7 +21,6 @@ import java.util.concurrent.TimeUnit;
 
 /** 
  * 所有driver的父类，定义公用方法和对象
- * @version 创建时间：2020年2月15日 下午4:33:10
  */
 public class DriverBase{
 	private static Logger log = Logger.getLogger(DriverBase.class);
