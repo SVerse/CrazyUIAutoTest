@@ -20,3 +20,7 @@
    
 # 工具类
 * 读取xml文件用的第三方jar包是dom4j
+  - 对应工具类是 com.crazy.auto.utils.GenerateTestngXml 
+* 读取yml文件用的第三方jar包是snakeyaml
+    - 对应工具类是 com.crazy.auto.utils.YamlReadUtil
+    
