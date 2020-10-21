@@ -1,0 +1,12 @@
+框架脚本编写步骤：
+1. 编写元素的xml配置文件
+2. 使用GenerateAutoCodeForYml/GenerateAutoCodeForXml这个类自动生成page类
+   修改String path="src/main/resources/pageObjectFiles/yml/UILibrary-javamall1223.yml";
+   执行该类，自动生成page类
+3. 复制其他pageObject里的BasePage到你自己的package中，修改BasePage中的String pagePath="src/main/resources/pageObjectFiles/xml/UILibrary0216.xml"为你自己的文件
+4. 在action业务层包中编写action类,就是我们的业务
+   用到了哪一个page对象，就实例化哪一个，因为page对象中有我们的元素对象
+5. 在src\test\java 下编写测试类
+   调用业务层的业务，实现测试，并且实现断言
+6. 修改testng配置文件，修改成我们要执行的测试类
+7. 执行testng配置文件
