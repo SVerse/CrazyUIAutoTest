@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverBase{
 	private static Logger log = Logger.getLogger(DriverBase.class);
 	WebDriver driver;
-	ProUtil pro=new ProUtil("src/main/resources/global.properties");
+	ProUtil pro = new ProUtil("src/main/resources/global.properties");
 	public String platform;
 	
 	public DriverBase(String platform) {
@@ -50,7 +50,7 @@ public class DriverBase{
 		WebElement element=null;
 		this.implicitlyWaitZero();
 		try {
-			element=new WebDriverWait(driver, elementBeans.getTimout()).until(ExpectedConditions.presenceOfElementLocated(elementBeans.getBy()));
+			element = new WebDriverWait(driver, elementBeans.getTimout()).until(ExpectedConditions.presenceOfElementLocated(elementBeans.getBy()));
 			log.info("定位【"+elementBeans.getElementName()+"】成功");
 		} catch (Exception e) {
 			// TODO: handle exception

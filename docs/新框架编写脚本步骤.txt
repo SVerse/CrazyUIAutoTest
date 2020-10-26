@@ -1,12 +1,37 @@
-框架脚本编写步骤：
+
+======框架脚本编写步骤=======
+
 1. 编写元素的xml配置文件
+   配置文件路径：src\main\resources\pageObjectFiles\xml
+
 2. 使用GenerateAutoCodeForYml/GenerateAutoCodeForXml这个类自动生成page类
-   修改String path="src/main/resources/pageObjectFiles/yml/UILibrary-javamall1223.yml";
+   文件路径：src\main\java\com\crazy\auto\poGenerate\GenerateAutoCodeForXml.java
+   修改String path="src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml";
    执行该类，自动生成page类
-3. 复制其他pageObject里的BasePage到你自己的package中，修改BasePage中的String pagePath="src/main/resources/pageObjectFiles/xml/UILibrary0216.xml"为你自己的文件
+   注意：需要保证Page类所在的目录已存在，不存在需要先创建
+
+3. 复制其他pageObject里的BasePage到你自己的package中
+   修改BasePage中的String pagePath="src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml"为你自己的文件
+
 4. 在action业务层包中编写action类,就是我们的业务
    用到了哪一个page对象，就实例化哪一个，因为page对象中有我们的元素对象
+   根据需要定义父类PageBaseActions
+
 5. 在src\test\java 下编写测试类
    调用业务层的业务，实现测试，并且实现断言
+   比如： src\test\java\com\mtx\ui\auto\test\MtxTests.java
+   测试类的基类：src\main\java\com\crazy\auto\test\TestDriverBase.java
+   测试类比较多时，可以继续抽象出父类：MtxTestBase
+
+
 6. 修改testng配置文件，修改成我们要执行的测试类
+
 7. 执行testng配置文件
+
+===执行脚本必需内容===
+1.浏览器驱动
+  路径：drivers
+  所有浏览器的驱动都放在这个目录下
+
+2.配置文件
+  src\main\resources\global.properties

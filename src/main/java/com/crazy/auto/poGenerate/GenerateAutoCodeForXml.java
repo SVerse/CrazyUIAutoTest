@@ -14,10 +14,11 @@ import java.util.Iterator;
 
 public class GenerateAutoCodeForXml {
 	private static Logger log = Logger.getLogger(GenerateAutoCodeForXml.class);
-	 static String path =
-	 "src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml";
-//	static String path = ExcelDataUtil.class.getClassLoader().getResource("pageObjectFiles/xml/UILibrary0216.xml")
-//			.getFile();
+
+	/**
+	 * path根据实际配置修改
+	 */
+	 static String path = "src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml";
 
 	public static void autoCode() throws Exception {
 		File file = new File(path);

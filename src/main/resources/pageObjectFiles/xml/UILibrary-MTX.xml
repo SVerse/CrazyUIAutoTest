@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--整个对象库文件的根目录，管理整个项目的对象-->
 <map>
-    <!--管理一个页面的元素（webelement：input,select,textare,a,li等标签），一个page包含多个locator对象
-    Pagename:page对象名字，格式：org.webdriver.patatiumappui.pageObject.xxxPage;最后面那位才是真正的页面名字，前面的是java对象库路径；
-    另外注意，页面名字是头个单词大写；例如主页：名字定义为 org.webdriver.patatiumappui.pageObject.HomePage
-    Value：页面对象的URL，可不填。
-    Desc:页面对象中文描述-->
-    <page pagename="com.testfan.ui.auto.pageObject.BingPageObject" value="" desc="Bing页面对象">
-        <!--管理一个页面的元素（webelement：input,select,textare,a,li等标签），一个page包含多个locator对象
-        Type：定位方式，包含id,name,class,linktext,xpath,css等，定位元素的时候灵活使用，一般可以统一用xpath
-        代替id,name,class，linktext的定位方式。
-        Timeout：元素加载时间，有些页面元素，可能要等待一段时间才能加载过来，为了查找元素的稳定性，需加等待时间。
-        Value:元素定位信息，如果是id,name,class，linktext直接把网页元素对应的这些属性值写上即可，如果是xpath定位方式，
-        需要填写正确的xpath语法格式。
-        Desc:元素的描述，元素的中文描述信息-->
-        <locator type="id" timeout="3" value="sb_form_q"  desc="搜索框">search</locator>
-        <locator type="id" timeout="3" value="sb_form_go"  desc="确定按钮">submit</locator>
+    <page pagename="com.mtx.ui.auto.pageObject.MtxHomePage" value="" desc="mtx首页">
+        <locator type="linkText" timeout="3" value="登录 "  desc="登录链接">loginlink</locator>
+        <locator type="cssSelector" timeout="3" value=".goods-items"  desc="商品">firstgoods</locator>
+        <locator type="cssSelector" timeout="3" value=".am-icon-fw.am-icon-user"  desc="个人中心">personcenter</locator>
+        <locator type="cssSelector" timeout="10" value=".mod-vip"  desc="登录以后的元素">modvip</locator>
+    </page>
+
+    <page pagename="com.mtx.ui.auto.pageObject.MtxLoginPage" value="" desc="登录页面">
+        <locator type="xpath" timeout="20" value="//*[@name='accounts']"  desc="用户名">username</locator>
+        <locator type="name" timeout="3" value="pwd"  desc="密码">password</locator>
+        <locator type="className" timeout="3" value="btn-loading-example"  desc="登录按钮">loginBtn</locator>
+    </page>
+
+    <page pagename="com.mtx.ui.auto.pageObject.GoodsDetailPage" value="" desc="商品详情页">
+        <locator type="xpath" timeout="20" value="//*[text()='立即购买']"  desc="立即购买">buy</locator>
+    </page>
+
+    <page pagename="com.mtx.ui.auto.pageObject.GoodsOrderPage" value="" desc="商品下单页">
+        <locator type="xpath" timeout="20" value="//*[text()='货到付款']/.."  desc="货到付款">货到付款</locator>
+        <locator type="cssSelector" timeout="20" value="[title='点击此按钮，提交订单']"  desc="提交订单">提交订单</locator>
     </page>
 </map>
