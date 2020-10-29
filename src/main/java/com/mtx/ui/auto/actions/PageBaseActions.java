@@ -13,7 +13,7 @@ public class PageBaseActions {
 	public MtxLoginPage mtxLoginPage;
 	public GoodsDetailPage goodsDetailPage;
 	public GoodsOrderPage goodsOrderPage;
-//	public MtxPersonCenterPage mtxPersonCenterPage;
+	public MtxPersonCenterPage mtxPersonCenterPage;
 //	public MtxHouHomePage mtxHouHomePage;
 //	public MtxHouLoginPage mtxHouLoginPage;
 //	public MtxHouOrderPage mtxHouOrderPage;
@@ -28,7 +28,7 @@ public class PageBaseActions {
 		this.mtxLoginPage=new MtxLoginPage(driver);
 		this.goodsDetailPage=new GoodsDetailPage(driver);
 		this.goodsOrderPage=new GoodsOrderPage(driver);
-//		this.mtxPersonCenterPage=new MtxPersonCenterPage(driver);
+		this.mtxPersonCenterPage=new MtxPersonCenterPage(driver);
 //		this.mtxHouHomePage=new MtxHouHomePage(driver);
 //		this.mtxHouLoginPage=new MtxHouLoginPage(driver);
 //		this.mtxHouOrderPage=new MtxHouOrderPage(driver);

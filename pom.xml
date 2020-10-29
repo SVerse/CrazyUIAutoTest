@@ -85,7 +85,12 @@
       <version>1.8.10</version>
     </dependency>
 
-
+    <!--extentReport测试报告-->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>3.1.5</version>
+    </dependency>
 
 
   </dependencies>
@@ -102,12 +107,12 @@
             <argLine>
               -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
             </argLine>
- <!--           <suiteXmlFiles>
-              &lt;!&ndash; 指定要执行的testng.xml路径 &ndash;&gt;
+            <suiteXmlFiles>
+              <!-- 指定要执行的testng.xml路径 -->
               <suiteXmlFile>testng.xml</suiteXmlFile>
             </suiteXmlFiles>
-            &lt;!&ndash; 出现测试异常是否继续向下执行，此选项必备，防止异常测试结果导致执行中断 &ndash;&gt;
-            <testFailureIgnore>true</testFailureIgnore>-->
+            <!-- 出现测试异常是否继续向下执行，此选项必备，防止异常测试结果导致执行中断 -->
+            <testFailureIgnore>true</testFailureIgnore>
           </configuration>
           <dependencies>
             <dependency>

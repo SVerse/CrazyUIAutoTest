@@ -12,22 +12,27 @@ public class HeaderUploadActions extends PageBaseActions {
 		// TODO Auto-generated constructor stub
 	}
 
-	//先完成期望图片的采集
-//	public void headerUpload() throws Exception {
-//		operate.click(mtxHomePage.personcenter());
-//		operate.click(mtxPersonCenterPage.personinfo());
-//		operate.click(mtxPersonCenterPage.change());
-//		driver.sleep(3);
-//		operate.click(mtxPersonCenterPage.selectimage());
-//		driver.sleep(5);
-//		operate.uploadFile("C:\\Users\\lixio\\Desktop\\345.png");
-//		driver.sleep(2);
-//		operate.click(mtxPersonCenterPage.confirmimage());
-//		driver.sleep(6);
-//		operate.getScreenshotAs(mtxPersonCenterPage.headerimg(), "images/mtx/expect2.png");
-//	}
+	/**
+	 * 完成期望图片的采集
+	 *
+	 * 1.通常在编写测试用例时进行采集，采集完成后保存成标准图片放在 images 目录下，供自动化测试时使用
+	 * 2.一般至少采集2张图片，自动化测试时要保证上传的图片与当前图片不一致
+	 */
+	public void headerUploadCollection() throws Exception {
+		operate.click(mtxHomePage.personcenter());
+		operate.click(mtxPersonCenterPage.personinfo());
+		operate.click(mtxPersonCenterPage.change());
+		driver.sleep(3);
+		operate.click(mtxPersonCenterPage.selectimage());
+		driver.sleep(5);
+		operate.uploadFile("C:\\Users\\lixio\\Desktop\\345.png");
+		driver.sleep(2);
+		operate.click(mtxPersonCenterPage.confirmimage());
+		driver.sleep(6);
+		operate.getScreenshotAs(mtxPersonCenterPage.headerimg(), "images/mtx/expect2.png");
+	}
 
-/*
+
 	public boolean headerUpload() throws Exception {
 		//
 		operate.click(mtxHomePage.personcenter());
@@ -41,11 +46,8 @@ public class HeaderUploadActions extends PageBaseActions {
 				break;
 			}
 		}
+
 		int new_index=1;
-//		
-//		while (new_index==cur_index) {
-//			new_index=RandomUtil.randomInt(1, 2);
-//		}
 		do {
 			new_index= RandomUtil.randomInt(1, 2);
 		} while (new_index==cur_index);
@@ -54,13 +56,13 @@ public class HeaderUploadActions extends PageBaseActions {
 		driver.sleep(3);
 		operate.click(mtxPersonCenterPage.selectimage());
 		driver.sleep(5);
-		operate.uploadFile("D:\\eclipse-workspace\\CrazyAutoTest1\\images\\mtx\\"+new_index+".png");
+		operate.uploadFile("images/mtx/"+new_index+".png");
 		driver.sleep(2);
 		operate.click(mtxPersonCenterPage.confirmimage());
 		driver.sleep(6);
 		operate.getScreenshotAs(mtxPersonCenterPage.headerimg(), "images/mtx/new.png");
 		return ImageUtil.compareImg("images/mtx/new.png", "images/mtx/expect"+new_index+".png", 100f);
 	}
-*/
+
 
 }
