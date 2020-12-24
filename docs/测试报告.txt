@@ -1,0 +1,22 @@
+
+======测试报告======
+
+1) extentreport测试报告：
+   report/index.html
+
+2) reportng测试报告
+   test-output/html
+   test-output/xml
+   当使用了 maven-surefire-plugin 插件时：
+   target/surefire-reports/html
+   target/surefire-reports/xml
+
+3) testng自带测试报告
+   test-output/index.html
+   当使用了 maven-surefire-plugin 插件时：
+   target/surefire-reports/index.html
+
+4) Allure2测试报告
+
+
+

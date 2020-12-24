@@ -29,7 +29,7 @@ public class ExcelDataUtil {
 	private XSSFRow Row;//行对象
 	private String filePath;//文件路径
 
-	// 设定要操作的 Excel 的文件路径和 Excel 文件中的 sheet 名称
+	// 设定要操作的 Excel 的文件路径
 	// 在读写excel的时候，均需要先调用此方法，设定要操作的 excel 文件路径和要操作的 sheet 名称
 	public ExcelDataUtil(String filepath) throws Exception {
 		FileInputStream ExcelFile;
@@ -158,15 +158,13 @@ public class ExcelDataUtil {
 		if (endCol >= colCount) {
 			endCol = colCount - 1;
 		}
+
 		List<Object[]> records = new ArrayList<Object[]>();
 		for (int i = startRow; i <= endRow; i++) {
-			//System.out.println("i====="+i);
 			String fields[] = new String[endCol - startCol + 1];
 			int index=0;
 			for (int j = startCol; j <= endCol; j++) {
-				//System.out.println(i+" "+j);
-				fields[index] = getCellData(sheetName, i, j);//fields[0]/fields[1]/fields[2]
-				index++;
+				fields[index++] = getCellData(sheetName, i, j);//fields[0]/fields[1]/fields[2]
 			}
 			records.add(fields);
 		}
@@ -179,6 +177,7 @@ public class ExcelDataUtil {
 		for (int i = 0; i < records.size(); i++) {
 			results[i] = records.get(i);
 		}
+
 		// 关闭 excel 文件
 		if (!(results.length > 0)) {
 			log.error("数据参数文件读取为空，无法执行测试，请检查");
@@ -199,6 +198,7 @@ public class ExcelDataUtil {
 		int colCount = Sheet.getRow(0).getPhysicalNumberOfCells();// 总列数
 		return getTestData(sheetName, 1, rowCount, 0, colCount - 1);
 	}
+
 	/**
 	 * 这个方法是专门用来读取关键字脚本中测试用例集合这个工作表内容的
 	 * @param sheetName
@@ -220,6 +220,7 @@ public class ExcelDataUtil {
 				records.add(fields);
 			}
 		}
+
 		// 定义函数返回值，即 Object[][]
 		// 将存储测试数据的 list 转换为一个 Object 的二维数组
 		// {{“”，“”，“”}，{“”，“”，“”}，{“”，“”，“”}，{“”，“”，“”}}
@@ -228,6 +229,7 @@ public class ExcelDataUtil {
 		for (int i = 0; i < records.size(); i++) {
 			results[i] = records.get(i);
 		}
+
 		// 关闭 excel 文件
 		if (!(results.length > 0)) {
 			log.error("数据参数文件读取为空，无法执行测试，请检查");
@@ -235,35 +237,35 @@ public class ExcelDataUtil {
 		}
 		//ExcelWBook.close();
 		return results;
-
 	}
 
 	public static void main(String[] args) throws Exception {
-		//String file="src/main/resources/data/mtx_data.xlsx";
-		String file="src/main/resources/keywords/javamall_cases3.xlsx";
 		//String file = ExcelDataUtil.class.getClassLoader().getResource("keywords/javamall_cases2.xlsx").getFile();
+		String file="src/main/resources/keywords/javamall_cases3.xlsx";
 		ExcelDataUtil excel = new ExcelDataUtil(file);
-		//String cellData = excel.getCellData("登录", 3, 2);
-	//	excel.setCellData(1, 4, "测试用例集合", false);
-	//	System.out.println(cellData);
-		int i = excel.getLastColIndex("测试用例集合");
-		excel.setCellData(1, i, "测试用例集合", false);
-		System.out.println(i);
-//		ExcleDataUtil excel=new ExcleDataUtil("src/main/resources/data/liecai.xlsx");
-//		Object[][] ob = excel.getKeywordData("测试用例集合");
-		//Object[][] ob = excel.getTestData("登录",1,6,1,3);
-//		System.out.println(ob.length);
-//		for (int i = 0; i < ob.length; i++) {
-//			Object[] obl = ob[i];
-//			System.out.println("");
-//			for (int j = 0; j < obl.length; j++) {
-//				System.out.print(obl[j] + "\t");
-//			}
-////			if (ob[i][2].toString().equalsIgnoreCase("y")) {
-////				k++;
-////			}
-//		}
+		String cellData = excel.getCellData("登录", 2, 2);
+		System.out.println(cellData);
+
+		int n = excel.getLastColIndex("测试用例集合");
+		excel.setCellData(1, n, "测试用例集合", false);
+		System.out.println(n);
+
+		Object[][] ob = excel.getKeywordData("测试用例集合");
+		printData(ob);
+		ob = excel.getTestData("登录",1,6,1,3);
+		printData(ob);
+
 		excel.close();
+	}
+
+	private static void printData(Object[][] ob) {
+		for (int i = 0; i < ob.length; i++) {
+			Object[] obl = ob[i];
+			System.out.println("");
+			for (int j = 0; j < obl.length; j++) {
+				System.out.print(obl[j] + "\t");
+			}
+		}
 	}
 
 }

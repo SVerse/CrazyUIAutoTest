@@ -1,6 +1,5 @@
 package com.mtx.ui.auto.test;
 
-import com.mtx.ui.auto.test.MtxTestBase0510;
 import com.mtx.ui.auto.actions.HeaderUploadActions;
 import com.mtx.ui.auto.actions.LoginActions;
 import com.mtx.ui.auto.actions.OrderActions;
@@ -9,7 +8,7 @@ import org.testng.annotations.Test;
 /**
  * mtx商城测试
  */
-public class MtxTests extends MtxTestBase0510 {
+public class MtxTests extends MtxTestBase {
 
 //	@Test(description = "mtx商城登录用户名错误")
 	public void test001_login() throws Exception {

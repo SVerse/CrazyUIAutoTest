@@ -13,7 +13,6 @@
       + src/main/java/com/crazy/auto/test/TestBase.java
 
 # 测试报告
-   + 报告路径：report/index.html
    
 # 元素配置文件
    + 路径：src/main/resources/pageObjectFiles/xml/
@@ -24,3 +23,5 @@
 * 读取yml文件用的第三方jar包是snakeyaml
     - 对应工具类是 com.crazy.auto.utils.YamlReadUtil
     
+# 上传图片结果验证
+

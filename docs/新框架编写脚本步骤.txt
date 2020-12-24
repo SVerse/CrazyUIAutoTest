@@ -3,15 +3,20 @@
 
 1. 编写元素的xml配置文件
    配置文件路径：src\main\resources\pageObjectFiles\xml
+   根据自己的项目需要，新建自己的xml文件，比如：UILibrary-MTX.xml
+   具体xml文件编写规则见 UILibrary.xml 中注释
 
 2. 使用GenerateAutoCodeForYml/GenerateAutoCodeForXml这个类自动生成page类
    文件路径：src\main\java\com\crazy\auto\poGenerate\GenerateAutoCodeForXml.java
    修改String path="src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml";
    执行该类，自动生成page类
-   注意：需要保证Page类所在的目录已存在，不存在需要先创建
+
+   注意：
+   1.需要保证Page类所在的目录已存在，不存在需要先创建
+   2.生成的page类路径在xml文件中指定
 
 3. 复制其他pageObject里的BasePage到你自己的package中
-   修改BasePage中的String pagePath="src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml"为你自己的文件
+   修改 BasePage 中的 String pagePath="src/main/resources/pageObjectFiles/xml/UILibrary-MTX.xml" 为你自己的文件
 
 4. 在action业务层包中编写action类,就是我们的业务
    用到了哪一个page对象，就实例化哪一个，因为page对象中有我们的元素对象
@@ -20,13 +25,15 @@
 5. 在src\test\java 下编写测试类
    调用业务层的业务，实现测试，并且实现断言
    比如： src\test\java\com\mtx\ui\auto\test\MtxTests.java
-   测试类的基类：src\main\java\com\crazy\auto\test\TestDriverBase.java
-   测试类比较多时，可以继续抽象出父类：MtxTestBase
+   测试类的父类：src\main\java\com\crazy\auto\test\TestDriverBase.java
+   测试类比较多时，可以继续抽象出父类：MtxTestBase，通常与业务相关的父类，放在src\test\java下
+   本案例中，由于包含了关键字驱动，关键字驱动的测试类继承了MtxTestBase，所以放在了src\main\java下
 
 
 6. 修改testng配置文件，修改成我们要执行的测试类
 
 7. 执行testng配置文件
+
 
 ===执行脚本必需内容===
 1.浏览器驱动
@@ -37,37 +44,3 @@
   src\main\resources\global.properties
 
 
-=====上传图片类用例验证方式====
-上传后有缩略图的，需要提前做图片数据采集，并保存在images目录下供用力执行后对比
-1.做图片数据采集，保存成标准图片，即expect.png，通常需要2张及以上
-2.上传时，将当前图片与要上传的图片对比，选择与当前图片不一样的进行上传
-3.上传完后，再次进行图片采集，保存成最新的图片，即new.png
-4.将最新的图片与标准图片进行对比，确定图片是否上传成功
-
-
-======测试报告======
-3种
-extentreport测试报告保存在 report 目录下
-reportng测试报告保存在 test-output 目录下
-
-失败截图
-保存在 report/snapshot 目录下
-
-失败后重试
-    <listeners>
-        <!--reportng测试报告的监听-->
-        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
-        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
-        <!--extentReport测试报告的监听-->
-        <listener class-name="com.crazy.auto.listeners.ExtentIReporterListenerUtil"></listener>
-        <!--失败重试的监听-->
-        <listener class-name="com.crazy.auto.listeners.RetryListener"></listener>
-        <!--失败截图的监听-->
-        <listener class-name="com.crazy.auto.listeners.TestListener"></listener>
-    </listeners>
-
-
-
-
-=========关键字驱动 ===========
-excel方式

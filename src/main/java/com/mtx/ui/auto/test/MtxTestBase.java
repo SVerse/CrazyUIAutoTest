@@ -2,19 +2,19 @@ package com.mtx.ui.auto.test;
 
 import com.crazy.auto.driver.CrazyWebDriver;
 import com.crazy.auto.element.ElementOperate;
+import com.crazy.auto.test.Assertion;
 import com.crazy.auto.test.TestDriverBase;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import com.crazy.auto.test.Assertion;
 
 /**
  *
  */
-public class MtxTestBase0510 extends TestDriverBase {
-	private static Logger log = Logger.getLogger(com.mtx.ui.auto.test.MtxTestBase0510.class);
+public class MtxTestBase extends TestDriverBase {
+	private static Logger log = Logger.getLogger(MtxTestBase.class);
 
 	public Assertion assertion;//咱们封装的断言
 	public ElementOperate operate;

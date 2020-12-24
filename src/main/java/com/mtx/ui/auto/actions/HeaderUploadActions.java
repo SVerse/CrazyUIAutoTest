@@ -4,6 +4,8 @@ import com.crazy.auto.driver.DriverBase;
 import com.crazy.auto.utils.ImageUtil;
 import com.crazy.auto.utils.RandomUtil;
 
+import java.io.File;
+
 
 public class HeaderUploadActions extends PageBaseActions {
 
@@ -53,13 +55,14 @@ public class HeaderUploadActions extends PageBaseActions {
 		} while (new_index==cur_index);
 		
 		operate.click(mtxPersonCenterPage.change());
-		driver.sleep(3);
-		operate.click(mtxPersonCenterPage.selectimage());
-		driver.sleep(5);
-		operate.uploadFile("images/mtx/"+new_index+".png");
 		driver.sleep(2);
+		operate.click(mtxPersonCenterPage.selectimage());
+		driver.sleep(2);
+		String filePath = System.getProperty("user.dir")+ File.separator + "images" + File.separator + "mtx" + File.separator + new_index + ".png";
+		operate.uploadFile(filePath);
+		driver.sleep(3);
 		operate.click(mtxPersonCenterPage.confirmimage());
-		driver.sleep(6);
+		driver.sleep(3);
 		operate.getScreenshotAs(mtxPersonCenterPage.headerimg(), "images/mtx/new.png");
 		return ImageUtil.compareImg("images/mtx/new.png", "images/mtx/expect"+new_index+".png", 100f);
 	}
