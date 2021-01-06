@@ -47,22 +47,4 @@ public  ElementBeans ordermenu() throws IOException
    else{
  log.error("在"+pagePath+"中不存在【ordermenu】元素信息"); return null;}
  }
-
-/***
-* 个人中心
-* @return
-* @throws IOException
-*/
-public  ElementBeans personcenter() throws IOException
- {
-   if(locatorMap.containsKey("personcenter")||locatorMap.containsKey("ios_personcenter")){
-   ElementBeans elementBeans=locatorMap.get("personcenter");
-       if(driver.platform.equalsIgnoreCase("ios")){
-           elementBeans=locatorMap.get("ios_personcenter");
-       }
-   return elementBeans;
- }
-   else{
- log.error("在"+pagePath+"中不存在【personcenter】元素信息"); return null;}
- }
 }

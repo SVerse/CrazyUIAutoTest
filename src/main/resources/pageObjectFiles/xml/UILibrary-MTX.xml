@@ -36,9 +36,6 @@
         <locator type="xpath" timeout="20" value="//*[text()='确定']"  desc="弹框确定">confirm</locator>
         <locator type="partialLinkText" timeout="20" value="评论"  desc="评论">comment</locator>
         <locator type="partialLinkText" timeout="20" value="申请售后"  desc="申请售后">申请售后</locator>
-        <locator type="xpath" timeout="20" value="//div[@class='submit-operation']/div"  desc="选择图片按钮">selectimage</locator>
-        <locator type="cssSelector" timeout="20" value=".head-submit"  desc="确认按钮">confirmimage</locator>
-        <locator type="cssSelector" timeout="20" value="dd>img"  desc="头像">headerimg</locator>
     </page>
 
     <page pagename="com.mtx.ui.auto.pageObject.MtxCommentPage" value="" desc="订单评论页面">
@@ -64,18 +61,13 @@
     <page pagename="com.mtx.ui.auto.pageObject.MtxHouHomePage" value="" desc="mtx后台首页">
         <locator type="xpath" timeout="3" value="//*[text()='订单管理']"  desc="订单管理">orderlink</locator>
         <locator type="cssSelector" timeout="3" value=".menu-items-178"  desc="订单管理菜单">ordermenu</locator>
-        <locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">personcenter</locator>
     </page>
 
-    <page pagename="com.mtx.ui.auto.pageObject.MtxHouOrderPage" value="" desc="mtx后台订单管理页面">
+    <page pagename="com.mtx.ui.auto.pageObject.MtxHouOrderManagePage" value="" desc="mtx后台订单管理页面">
         <locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']/button"  desc="发货">sendgoods</locator>
         <locator type="cssSelector" timeout="3" value=".express-items-1"  desc="第一个快递">express</locator>
         <locator type="name" timeout="3" value="express_number"  desc="快递单号">express_number</locator>
         <locator type="xpath" timeout="3" value="(//*[text()='确认'])[2]"  desc="发货确认">expressconfirm</locator>
         <locator type="id" timeout="3" value="ifcontent"  desc="订单页面的iframe id">orderiframe</locator>
-        <!-- 		<locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator>
-                <locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator>
-                <locator type="xpath" timeout="3" value="//*[text()='名称：shamotest1']/../../following-sibling::td[@class='view-operation']"  desc="个人中心">sendgoods</locator> -->
-        //
     </page>
 </map>

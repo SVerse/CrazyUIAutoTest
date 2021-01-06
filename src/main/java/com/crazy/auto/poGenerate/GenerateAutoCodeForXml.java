@@ -58,7 +58,7 @@ public class GenerateAutoCodeForXml {
 			sb.append("//" + page.attribute(2).getValue() + "_对象库类\n");
 			sb.append("public class " + pageClassName + " extends BasePage {\n");
 			sb.append("private static Logger log = Logger.getLogger("+pageClassName+".class);");
-			sb.append("//用于eclipse工程内运行查找对象库文件路径\n");
+			sb.append("//获取日志记录器，这个记录器将负责控制日志信息\n");
 			sb.append(" public   " + pageClassName + "(DriverBase driver) {\n");
 			sb.append("//工程内读取对象库文件\n	");
 			sb.append("super(driver);\n");

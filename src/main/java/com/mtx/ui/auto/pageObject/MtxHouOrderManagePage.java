@@ -5,9 +5,9 @@ import java.io.InputStream;
 import com.crazy.auto.driver.DriverBase;
 import com.crazy.auto.element.ElementBeans;
 //mtx后台订单管理页面_对象库类
-public class MtxHouOrderPage extends BasePage {
-private static Logger log = Logger.getLogger(MtxHouOrderPage.class);//用于eclipse工程内运行查找对象库文件路径
- public   MtxHouOrderPage(DriverBase driver) {
+public class MtxHouOrderManagePage extends BasePage {
+private static Logger log = Logger.getLogger(MtxHouOrderManagePage.class);//用于eclipse工程内运行查找对象库文件路径
+ public   MtxHouOrderManagePage(DriverBase driver) {
 //工程内读取对象库文件
 	super(driver);
 
@@ -91,7 +91,7 @@ public  ElementBeans expressconfirm() throws IOException
 */
 public  ElementBeans orderiframe() throws IOException
  {
-   if(locatorMap.containsKey("orderiframe")||locatorMap.containsKey("ios_orderiframe")){
+   if(locatorMap.containsKey("orderiframe") || locatorMap.containsKey("ios_orderiframe")){
    ElementBeans elementBeans=locatorMap.get("orderiframe");
        if(driver.platform.equalsIgnoreCase("ios")){
            elementBeans=locatorMap.get("ios_orderiframe");

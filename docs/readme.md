@@ -3,12 +3,14 @@
 * 后台：
    - 码同学后台管理系统
    - http://121.42.15.146:9090/mtx/admin
+   - shamotest1/123456
    - 需要修改的点：
       + src/test/java/com/crazy/tests/MTXCases.java
    
 * 前台：
    - 码同学实战系统
    - http://121.42.15.146:9090/mtx
+   - shamo/123456
    - 需要修改的点：
       + src/main/java/com/crazy/auto/test/TestBase.java
 

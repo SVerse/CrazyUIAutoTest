@@ -17,8 +17,10 @@
     <test name="mtx商城">
         <parameter name="browserType" value="chrome"></parameter>
         <classes>
-<!--            <class name="com.mtx.ui.auto.test.MtxTests"></class>-->
-            <class name="com.crazy.auto.keyword.KeyWordTestsMtx"></class>
+            <class name="com.mtx.ui.auto.test.MtxTests"></class>
+<!--            <class name="com.mtx.ui.auto.test.MtxLoginTest"></class>-->
+<!--            <class name="com.mtx.ui.auto.test.MtxCommentTest"></class>-->
+<!--            <class name="com.crazy.auto.keyword.KeyWordTestsMtx"></class>-->
         </classes>
     </test>
 

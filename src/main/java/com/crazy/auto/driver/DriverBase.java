@@ -31,38 +31,41 @@ public class DriverBase{
 	public DriverBase(String platform) {
 		this.platform=platform;
 	}
+
 	public WebDriver getDriver() {
 		return driver;
 	}
+
 	public WebElement findElement(ElementBeans elementBeans) {
-		WebElement element=null;
+		WebElement element = null;
 		try {
 			//driver.findElement(By.xpath("//xjhashdh"));
-			element=driver.findElement(elementBeans.getBy());//by.xxx("xx")
-			log.info("定位【"+elementBeans.getElementName()+"】成功");
+			element = driver.findElement(elementBeans.getBy()); //by.xxx("xx")
+			log.info("定位【" + elementBeans.getElementName() + "】成功");
 		} catch (Exception e) {
 			// TODO: handle exception 
-			log.debug("定位【"+elementBeans.getElementName()+"】失败",e);		
+			log.debug("定位【" + elementBeans.getElementName() + "】失败", e);
 		}
 		return element;
 	}
+
 	public WebElement findElementTimeOut(ElementBeans elementBeans) {
-		WebElement element=null;
+		WebElement element = null;
 		this.implicitlyWaitZero();
 		try {
 			element = new WebDriverWait(driver, elementBeans.getTimout()).until(ExpectedConditions.presenceOfElementLocated(elementBeans.getBy()));
-			log.info("定位【"+elementBeans.getElementName()+"】成功");
+			log.info("定位【" + elementBeans.getElementName() + "】成功");
 		} catch (Exception e) {
 			// TODO: handle exception
-			log.debug("定位【"+elementBeans.getElementName()+"】失败在"+elementBeans.getTimout()+"秒内",e);		
+			log.debug("定位【" + elementBeans.getElementName() + "】失败在" + elementBeans.getTimout() + "秒内", e);
 		}
 		this.implicitlyWaitDefault();
 		return element;
 	}
 	
 	public List<WebElement> findElements(ElementBeans elementBeans) {
-		List<WebElement> elements=driver.findElements(elementBeans.getBy());
-		log.info("定位【"+elementBeans.getElementName()+"】总计定位到"+elements.size()+"个");
+		List<WebElement> elements = driver.findElements(elementBeans.getBy());
+		log.info("定位【" + elementBeans.getElementName() + "】总计定位到" + elements.size() + "个");
 		return elements;
 	}
 
@@ -73,32 +76,32 @@ public class DriverBase{
     
     public String getCurrentUrl() {
     	String currentUrl = driver.getCurrentUrl();
-    	log.info("获取当前界面url是【"+currentUrl+"】");
+    	log.info("获取当前界面url是【" + currentUrl + "】");
     	return currentUrl;
     }
     
     public String getTitle() {
     	String title = driver.getTitle();
-    	log.info("获取当前界面title是【"+title+"】");
+    	log.info("获取当前界面title是【" + title + "】");
     	return title;
     }
     
     public String getPageSource() {
     	String pageSource = driver.getPageSource();
-    	log.info("获取当前界面pageSource是【"+pageSource+"】");
+    	log.info("获取当前界面pageSource是【" + pageSource + "】");
     	return pageSource;
     }
     
     public String getWindowHandle() {
     	String windowHandle = driver.getWindowHandle();
-    	log.info("获取当前界面windowHandle是【"+windowHandle+"】");
+    	log.info("获取当前界面windowHandle是【" + windowHandle + "】");
     	return windowHandle;
     }
     
     public Set<String> getWindowHandles() {
     	Set<String> windowHandles = driver.getWindowHandles();
-    	for(String s:windowHandles) {
-    		log.info("获取所有界面windowHandles依次是【"+s+"】");
+    	for(String s : windowHandles) {
+    		log.info("获取所有界面windowHandles依次是【" + s + "】");
     	}
     	return windowHandles;
     }
@@ -119,7 +122,7 @@ public class DriverBase{
     }
 
     public Alert switchToAlert() {
-    	Alert alert=null;
+    	Alert alert = null;
     	try {
         	alert = driver.switchTo().alert();
         	log.info("alert切换成功");
@@ -131,7 +134,7 @@ public class DriverBase{
     }
 
     public Alert switchToAlert(int timeout) {
-    	Alert alert=null;
+    	Alert alert = null;
     	
     	try {
     		alert = new WebDriverWait(driver, timeout).until(ExpectedConditions.alertIsPresent());
@@ -180,29 +183,29 @@ public class DriverBase{
 
     public void switchToWindow(String nameOrHandle) {
     	driver.switchTo().window(nameOrHandle);
-    	log.info(nameOrHandle +"window切换成功");
+    	log.info(nameOrHandle + "window切换成功");
     }
     
     public void switchToWindow(int index) {
     	//new WebDriverWait(driver, 10).until(ExpectedConditions.numberOfWindowsToBe(2));
     	Set<String> windowHandles = this.driver.getWindowHandles();
-    	for(String s:windowHandles) {
-    		System.out.println("sssss:"+s);
+    	for(String s : windowHandles) {
+    		System.out.println("sssss:" + s);
     	}
     	Object object = driver.getWindowHandles().toArray()[index];
     	driver.switchTo().window(object.toString());
-    	log.info("window切换到第"+index+"个成成功");
+    	log.info("window切换到第" + index + "个成功");
     }
     
     public void executeJS(String script) {
-    	JavascriptExecutor js=(JavascriptExecutor)driver;
+    	JavascriptExecutor js = (JavascriptExecutor)driver;
     	js.executeScript(script);
-    	log.info("执行js成功，js是：" +script);
+    	log.info("执行js成功，js是：" + script);
     }
 
     public void sleep(int seconds) {
     	try {
-    		log.info("等待" +seconds+"秒");
+    		log.info("等待" + seconds + "秒");
 			Thread.sleep(seconds*1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -212,7 +215,7 @@ public class DriverBase{
 
     public void implicitlyWait(int seconds) {
     	driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
-    	log.info("设置全局隐式等待为" +seconds+"秒");
+    	log.info("设置全局隐式等待为" + seconds + "秒");
     }
 
     public void implicitlyWaitDefault() {
@@ -230,30 +233,30 @@ public class DriverBase{
 
     public String getScreenShot(String filename) {
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyyMMdd-HHmmssSSS" );
-        String time=formatter.format(new Date()).toString();
+        String time = formatter.format(new Date()).toString();
     	File screenshotAs = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     	try {
 			FileUtils.copyFile(screenshotAs, new File("report/snapshot/"+time+filename));
-			log.info("截图成功，图片是：report/snapshot/"+time+filename);
+			log.info("截图成功，图片是：report/snapshot/" + time + filename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.debug("截图失败，图片是：report/snapshot/"+time+filename,e);
+			log.debug("截图失败，图片是：report/snapshot/" + time + filename, e);
 		}
     	return time+filename;
     }
 
-    public String getScreenShot(String path,String filename) {
+    public String getScreenShot(String path, String filename) {
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyyMMdd-HHmmssSSS" );
         String time=formatter.format(new Date()).toString();
     	File screenshotAs = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     	try {
-			FileUtils.copyFile(screenshotAs, new File(path+"/"+time+filename));
-			log.info("截图成功，图片是："+path+"/"+time+filename);
+			FileUtils.copyFile(screenshotAs, new File(path+"/" + time + filename));
+			log.info("截图成功，图片是：" + path + "/" + time + filename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.debug("截图失败，图片是："+path+"/"+time+filename,e);
+			log.debug("截图失败，图片是：" + path + "/" + time + filename, e);
 		}
     	return time+filename;
     }
@@ -321,24 +324,24 @@ public class DriverBase{
 	 * @param appActivity
 	 * @throws Exception 
 	 */
-	public void startActivity(String appPackage,String appActivity) throws Exception{
+	public void startActivity(String appPackage, String appActivity) throws Exception{
 		if(platform.equalsIgnoreCase("android")){
-			Activity activity=new Activity(appPackage, appActivity);
+			Activity activity = new Activity(appPackage, appActivity);
 			((AndroidDriver) driver).startActivity(activity);
 		}else{
-			log.error("platform is "+platform+" not support startactivty");
-			throw new Exception("platform is "+platform+" not support startactivty");
+			log.error("platform is " + platform + " not support startactivty");
+			throw new Exception("platform is " + platform + " not support startactivty");
 		}
 	}
 
-	public void startActivity(String appPackage,String appActivity,String appWaitActivity) throws Exception{
+	public void startActivity(String appPackage, String appActivity, String appWaitActivity) throws Exception{
 		if(platform.equalsIgnoreCase("android")){
-			Activity activity=new Activity(appPackage, appActivity);
+			Activity activity = new Activity(appPackage, appActivity);
 			activity.setAppWaitActivity(appWaitActivity);
 			((AndroidDriver) driver).startActivity(activity);
 		}else{
-			log.error("platform is "+platform+" not support startactivty");
-			throw new Exception("platform is "+platform+" not support startactivty");
+			log.error("platform is " + platform + " not support startactivty");
+			throw new Exception("platform is " + platform + " not support startactivty");
 		}
 	}
 	
